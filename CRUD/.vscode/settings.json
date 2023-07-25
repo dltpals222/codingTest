@@ -1,0 +1,8 @@
+{
+  "java.project.sourcePaths": ["src"],
+  "java.project.outputPath": "bin",
+  "java.project.referencedLibraries": ["lib/**/*.jar"],
+  "codr-runner.executorMap": {
+    "terminal.integrated.shell.windows": "C:/\\windows\\sysnative\\cmd.exe"
+  }
+}
