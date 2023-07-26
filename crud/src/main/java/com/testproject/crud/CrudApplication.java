@@ -1,13 +1,13 @@
-package com.crud.test;
+package com.testproject.crud;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class TestApplication {
+public class CrudApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(TestApplication.class, args);
+		SpringApplication.run(CrudApplication.class, args);
 	}
 
 }
