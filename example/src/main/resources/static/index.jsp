@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="index.css" />
   </head>
   <body>
-    <div id="root" style="display: flex">
+    <div id="root" style="display: flex" class="width-height-100">
       <div class="side-bg-black"></div>
       <div id="user-managers" class="user-managers-display">
         <div id="um-1" class="um-style">
@@ -40,20 +40,20 @@
           </ul>
         </div>
       </div>
-      <div id="user-info-container" style="background-color: rgb(217, 252, 252)">
+      <div id="user-info-container" class="user-info-container-style">
         <div id="header-user-info" class="header-user-info-style">
-          <div id="user-info" class="user-info-style">회원정보</div>
+          <div id="user-info-font" class="user-info-font-style">회원정보</div>
           <div id="info-container" class="info-container-style">
-            <div id="info-add" class="div-info">추가 +</div>
-            <div id="info-update" class="div-info">선택수정</div>
-            <div id="info-delete" class="div-info">선택삭제</div>
-            <select name="search" id="user-search">
+            <button id="info-add" class="div-info div-info-add-style">추가 +</button>
+            <button id="info-update" class="div-info">선택수정</button>
+            <button id="info-delete" class="div-info">선택삭제</button>
+            <select name="search" id="user-search" class="div-info search-style-hight-43">
               <option value="name">이름으로 검색</option>
               <option value="number">번호로 검색</option>
               <option value="userId">아이디로 검색</option>
             </select>
             <div>
-              <input type="text" />
+              <input type="text" class="div-info search-style-hight-43" />
             </div>
           </div>
         </div>
