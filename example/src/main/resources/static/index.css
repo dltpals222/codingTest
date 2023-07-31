@@ -93,6 +93,8 @@
 
 .search-style-hight-43 {
   height: 43px;
+  width: 140px;
+  min-width: 120px;
 }
 
 .user-info-font-style {
