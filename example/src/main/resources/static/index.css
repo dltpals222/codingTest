@@ -54,7 +54,7 @@
 /*todo user-info style */
 /** 최상단 컨테이너 */
 .user-info-container-style {
-  width: 85vw;
+  width: 100vw;
   height: 100vh;
   min-width: 1500px;
   min-height: 1080px;
@@ -66,6 +66,7 @@
   height: 10%;
   display: flex;
   justify-content: space-between;
+  padding: 2%;
 }
 
 .info-container-style {
@@ -80,9 +81,6 @@
   width: auto;
   padding: 10px;
   border: 1px solid black;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   margin: 5px;
   background-color: white;
   border-radius: 5%;
