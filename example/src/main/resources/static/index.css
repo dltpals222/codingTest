@@ -4,13 +4,28 @@
   box-sizing: border-box;
 }
 
-.user-managers {
-  font-weight: 600;
-  margin: 5px;
+.user-managers-display {
+  margin-right: 10px;
+  padding: 10px;
 }
 
-.ul-style {
+.um-style {
+  margin-bottom: 30px;
+}
+
+.user-manager {
+  font-weight: 600;
+  margin: 10px;
+}
+
+.ul-list-style-type {
   list-style-type: none;
+}
+
+.li-style {
+  color: #202020;
+  margin: 10px;
+  padding-left: 20px;
 }
 
 .flex-center {
@@ -23,4 +38,34 @@
   background-color: black;
   width: 5px;
   height: 100vh;
+}
+
+.header-user-info-style {
+  display: flex;
+  justify-content: space-between;
+}
+
+.info-container-style {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  width: 85vw;
+  height: 100vh;
+  min-width: 1500px;
+  min-height: 1080px;
+}
+
+.div-info {
+  width: 100px;
+  height: 30px;
+  padding: 10px;
+  border: 1px solid black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.user-info-style {
+  font-size: 1.5em;
+  font-weight: 700;
 }
