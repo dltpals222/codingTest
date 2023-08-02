@@ -31,6 +31,7 @@
   font-weight: 600;
   margin: 10px;
   min-width: 100px;
+  width: 7%;
 }
 
 .ul-list-style-type {
@@ -54,11 +55,11 @@
 /*todo user-info style */
 /** 최상단 컨테이너 */
 .user-info-container-style {
-  width: 100vw;
-  height: 100vh;
-  min-width: 1500px;
-  min-height: 1080px;
-  background-color: rgb(217, 252, 252);
+  width: 100%;
+  height: fit-content;
+  min-width: 1100px;
+  min-height: 100vh;
+  background-color: rgb(235, 255, 255);
 }
 
 .header-user-info-style {
@@ -66,7 +67,7 @@
   height: 10%;
   display: flex;
   justify-content: space-between;
-  padding: 2%;
+  padding: 1% 2% 2px 2%;
 }
 
 .info-container-style {
@@ -100,4 +101,75 @@
 .user-info-font-style {
   font-size: 1.5em;
   font-weight: 700;
+}
+
+.mainTable {
+  background-color: rgb(217, 252, 252);
+  width: 100vw;
+}
+
+table {
+  border-collapse: separate;
+  /* 셀 사이 간격 제거 */
+  border-spacing: 0;
+  padding: 10px;
+}
+
+tr th:first-child {
+  width: 3vw;
+}
+
+tr th:nth-child(2) {
+  width: 7vw;
+}
+
+tr th:nth-child(4) {
+  width: 10vw;
+}
+
+tr th:nth-child(5) {
+  width: 20vw;
+}
+
+tr th:nth-child(6) {
+  width: 30vw;
+}
+
+th {
+  min-width: 50px;
+  width: 15vw;
+}
+
+th,
+td {
+  border: 0.5px solid black;
+  height: 2.5em;
+  background-color: white;
+}
+
+td {
+  padding: 2px;
+}
+
+/* 첫 번째 행과 마지막 행의 첫 번째와 마지막 셀에 border-radius 적용 */
+tr:first-child th:first-child {
+  border-top-left-radius: 25px;
+}
+
+tr:first-child th:last-child {
+  border-top-right-radius: 25px;
+}
+
+tr:last-child td:first-child {
+  border-bottom-left-radius: 25px;
+}
+
+tr:last-child td:last-child {
+  border-bottom-right-radius: 25px;
+}
+
+td:first-child {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
