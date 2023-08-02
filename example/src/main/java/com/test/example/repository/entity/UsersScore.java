@@ -25,7 +25,7 @@ public class UsersScore {
   @Column(nullable = false)
   private Long number;
   
-  @Column(nullable = false, unique = true)
+  @Column(nullable = false)
   private String userId;
   
   @Column(nullable = false)
