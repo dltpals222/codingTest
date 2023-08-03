@@ -102,9 +102,10 @@
             </tbody>
           </table>
         </div>
-        <div id="UC-modal" class="modal-style flex-center"></div>
+        <div id="modal-backdrop" class="modal-backdrop-style">
+          <div id="UC-modal" class="modal-style flex-center"></div>
+        </div>
       </div>
-
       <div class="side-bg-black"></div>
     </div>
     <script>
@@ -124,8 +125,10 @@
           })
           .then(function (result) {
             document.getElementById("UC-modal").innerHTML = result;
+            document.getElementById("modal-backdrop").style.display = "block"; // Add this line
             const cancel = document.getElementById("cancel").addEventListener("click", () => {
               document.getElementById("UC-modal").innerHTML = "";
+              document.getElementById("modal-backdrop").style.display = "none"; // Add this line
             });
           })
           .catch(function (error) {
