@@ -103,7 +103,7 @@
           </table>
         </div>
         <div id="modal-backdrop" class="modal-backdrop-style">
-          <div id="UC-modal" class="modal-style flex-center"></div>
+          <div id="UC-modal" class="flex-center"></div>
         </div>
       </div>
       <div class="side-bg-black"></div>

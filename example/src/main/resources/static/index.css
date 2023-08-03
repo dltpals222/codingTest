@@ -106,6 +106,7 @@
 .mainTable {
   background-color: rgb(217, 252, 252);
   width: 100vw;
+  overflow-y: auto; /* 초과시 스크롤 */
 }
 
 /*todo table CSS */
@@ -176,13 +177,6 @@
 }
 
 /*todo modal CSS */
-.modal-style {
-  position: absolute;
-  z-index: 1;
-  top: 600px;
-  left: 50px;
-}
-
 .modal-backdrop-style {
   position: fixed;
   top: 0;

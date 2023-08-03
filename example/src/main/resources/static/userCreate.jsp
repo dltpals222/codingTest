@@ -11,9 +11,9 @@
   <body>
     <!--? Info_Create Modal -->
     <div id="Create-modal-container" class="modal">
-      <div class="modal-content">
+      <div class="modal-content flex-center">
         <form id="addInfoForm" method="POST" action="your_submit_url">
-          <table class="width-height-inherit">
+          <table class="modal-table">
             <thead>
               <tr>
                 <th>NO</th>
