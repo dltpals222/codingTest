@@ -17,7 +17,7 @@
         <div id="um-1" class="um-style">
           <div class="user-manager">회원관리</div>
           <ul class="ul-list-style-type">
-            <li class="li-style">정보</li>
+            <li id="um-1-info" class="li-style">정보</li>
             <li class="li-style">로그인정보</li>
             <li class="li-style">추천인정보</li>
             <li class="li-style">SNS보내기</li>
@@ -44,12 +44,18 @@
       </div>
 
       <!--? Main -->
-      <div id="user-info-container" class="user-info-container-style">
+      <div id="user-info-container" class="user-info-container-style" style="visibility: hidden">
         <!--? Main nav -->
         <div id="header-user-info" class="header-user-info-style">
           <div id="user-info-font" class="user-info-font-style flex-center">회원정보</div>
           <div id="info-container" class="info-container-style">
-            <button id="info-add" class="div-info div-info-add-style flex-center">추가 +</button>
+            <button
+              id="info-add"
+              class="div-info div-info-add-style flex-center"
+              onclick="loadModal()"
+            >
+              추가 +
+            </button>
             <button id="info-update" class="div-info flex-center">선택수정</button>
             <button id="info-delete" class="div-info flex-center">선택삭제</button>
             <select
@@ -96,10 +102,36 @@
             </tbody>
           </table>
         </div>
+        <div id="UC-modal" class="modal-style flex-center"></div>
       </div>
 
       <div class="side-bg-black"></div>
     </div>
-    <script></script>
+    <script>
+      const um1Info = document.getElementById("um-1-info");
+      const userInfoContainer = document.getElementById("user-info-container");
+      um1Info.addEventListener("click", function () {
+        userInfoContainer.style.visibility = "visible";
+      });
+
+      function loadModal() {
+        fetch("userCreate.jsp")
+          .then(function (res) {
+            if (!res.ok) {
+              throw Error(res.statusText);
+            }
+            return res.text();
+          })
+          .then(function (result) {
+            document.getElementById("UC-modal").innerHTML = result;
+            const cancel = document.getElementById("cancel").addEventListener("click", () => {
+              document.getElementById("UC-modal").innerHTML = "";
+            });
+          })
+          .catch(function (error) {
+            console.error("유저 정보 추가 파일을 읽어오는데 에러가 발생했습니다.", error);
+          });
+      }
+    </script>
   </body>
 </html>

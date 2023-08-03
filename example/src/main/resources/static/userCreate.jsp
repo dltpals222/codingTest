@@ -10,10 +10,10 @@
   </head>
   <body>
     <!--? Info_Create Modal -->
-    <div id="Info-Create-Container" class="modal" style="z-index: 1; position: absolute">
+    <div id="Create-modal-container" class="modal">
       <div class="modal-content">
         <form id="addInfoForm" method="POST" action="your_submit_url">
-          <table>
+          <table class="width-height-inherit">
             <thead>
               <tr>
                 <th>NO</th>
@@ -25,14 +25,14 @@
               </tr>
             </thead>
             <tbody>
-              <% for (int i = 0; i < 20; i++) { %>
+              <% for (int i = 0; i < 10; i++) { %>
               <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
+                <td contenteditable="true" name="NO"></td>
+                <td contenteditable="true" name="name"></td>
+                <td contenteditable="true" name="number"></td>
+                <td contenteditable="true" name="userId"></td>
+                <td contenteditable="true" name="deposit"></td>
+                <td contenteditable="true" name="score"></td>
               </tr>
               <% } %>
             </tbody>

@@ -4,59 +4,67 @@
   box-sizing: border-box;
 }
 
-#main-user-info table {
+.width-height-inherit {
+  width: inherit;
+  height: inherit;
+}
+
+/*todo table CSS */
+#addInfoForm table {
   border-collapse: separate;
-  /* 셀 사이 간격 제거 */
   border-spacing: 0;
 }
 
-tr th:nth-child(1) {
-  width: 7vw;
+#Create-modal-container tr th:nth-child(1) {
+  width: 7%;
 }
 
-tr th:nth-child(3) {
-  width: 10vw;
+#Create-modal-container tr th:nth-child(3) {
+  width: 10%;
 }
 
-tr th:nth-child(4) {
-  width: 20vw;
+#Create-modal-container tr th:nth-child(4) {
+  width: 20%;
 }
 
-tr th:nth-child(5) {
-  width: 30vw;
+#Create-modal-container tr th:nth-child(5) {
+  width: 30%;
 }
 
-th {
+#Create-modal-container th {
   min-width: 50px;
-  width: 15vw;
+  width: 15%;
 }
 
-th,
-td {
+#Create-modal-container th,
+#Create-modal-container td {
   border: 0.5px solid black;
   height: 2em;
+  background-color: white;
 }
 
-td {
+#Create-modal-container td {
   padding: 2px;
 }
 
 /* 첫 번째 행과 마지막 행의 첫 번째와 마지막 셀에 border-radius 적용 */
-tr:first-child th:first-child {
+#Create-modal-container tr:first-child th:first-child {
   border-top-left-radius: 5px;
 }
 
-tr:first-child th:last-child {
+#Create-modal-container tr:first-child th:last-child {
   border-top-right-radius: 5px;
 }
 
-tr:last-child td:first-child {
+#Create-modal-container tr:last-child td:first-child {
   border-bottom-left-radius: 5px;
 }
 
-tr:last-child td:last-child {
+#Create-modal-container tr:last-child td:last-child {
   border-bottom-right-radius: 5px;
 }
+
+/*todo button CSS */
 
 .buttonContainer {
   display: flex;

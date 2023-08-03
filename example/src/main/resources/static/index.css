@@ -57,7 +57,7 @@
 .user-info-container-style {
   width: 100%;
   height: fit-content;
-  min-width: 1100px;
+  min-width: 1000px;
   min-height: 100vh;
   background-color: rgb(235, 255, 255);
 }
@@ -108,68 +108,77 @@
   width: 100vw;
 }
 
-table {
+/*todo table CSS */
+#main-table table {
   border-collapse: separate;
   /* 셀 사이 간격 제거 */
   border-spacing: 0;
   padding: 10px;
 }
 
-tr th:first-child {
+#main-table tr th:first-child {
   width: 3vw;
 }
 
-tr th:nth-child(2) {
+#main-table tr th:nth-child(2) {
   width: 7vw;
 }
 
-tr th:nth-child(4) {
+#main-table tr th:nth-child(4) {
   width: 10vw;
 }
 
-tr th:nth-child(5) {
+#main-table tr th:nth-child(5) {
   width: 20vw;
 }
 
-tr th:nth-child(6) {
+#main-table tr th:nth-child(6) {
   width: 30vw;
 }
 
-th {
+#main-table th {
   min-width: 50px;
   width: 15vw;
 }
 
-th,
-td {
+#main-table th,
+#main-table td {
   border: 0.5px solid black;
   height: 2.5em;
   background-color: white;
 }
 
-td {
+#main-table td {
   padding: 2px;
 }
 
 /* 첫 번째 행과 마지막 행의 첫 번째와 마지막 셀에 border-radius 적용 */
-tr:first-child th:first-child {
+#main-table tr:first-child th:first-child {
   border-top-left-radius: 25px;
 }
 
-tr:first-child th:last-child {
+#main-table tr:first-child th:last-child {
   border-top-right-radius: 25px;
 }
 
-tr:last-child td:first-child {
+#main-table tr:last-child td:first-child {
   border-bottom-left-radius: 25px;
 }
 
-tr:last-child td:last-child {
+#main-table tr:last-child td:last-child {
   border-bottom-right-radius: 25px;
 }
 
-td:first-child {
+#main-table td:first-child {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+/*todo modal CSS */
+.modal-style {
+  position: absolute;
+  z-index: 1;
+  top: 600px;
+  left: 50px;
 }
