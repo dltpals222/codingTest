@@ -1,20 +1,13 @@
 package com.test.example.repository.entity;
 
 public class UserDTO {
-  private Long userNo;
   private String userName;
   private String userID;
   private Long userNumber;
   private Long userDeposit;
   private Integer userScore;
   
-  // user정보 No의 getter setter
-  public Long getUserNo() {
-    return userNo;
-  }
-  public void setUserNo(Long userNo) {
-    this.userNo = userNo;
-  }
+
 
   // user정보 name의 getter setter
   public String getUserName() {

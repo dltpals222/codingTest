@@ -8,7 +8,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
 import jakarta.servlet.http.HttpServletRequest;
 
 import java.util.ArrayList;
@@ -17,7 +16,6 @@ import java.util.List;
 import java.util.Map;
 
 @Controller
-@RequestMapping(value="/")
 public class ExampleController {
 
     private final UsersRepository usersRepository;
@@ -76,9 +74,9 @@ public class ExampleController {
             }
             return "redirect:/";
         } catch (Exception e) {
-            System.err.println("Error during user creation: " + e.getMessage());
+            System.err.println("유저정보값을 입력하는데 에러가 발생했습니다. : " + e.getMessage());
             if (e.getCause() != null) {
-                System.err.println("Cause: " + e.getCause().getMessage());
+                System.err.println("원인 : " + e.getCause().getMessage());
             }
             e.printStackTrace();
             return "error";

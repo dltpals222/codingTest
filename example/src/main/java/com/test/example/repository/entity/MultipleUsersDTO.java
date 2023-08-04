@@ -11,7 +11,6 @@ public class MultipleUsersDTO {
         this.users = new ArrayList<>();
         rawData.forEach(data -> {
             UserDTO user = new UserDTO();
-            user.setUserNo (convertToLong(data.get("userNo")));
             user.setUserName(data.get("name"));
             user.setUserID(data.get("userId")); 
             user.setUserNumber(convertToLong(data.get("number")));
