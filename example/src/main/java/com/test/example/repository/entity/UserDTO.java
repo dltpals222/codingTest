@@ -8,7 +8,7 @@ public class UserDTO {
   private Long userDeposit;
   private Integer userScore;
   
-  // user정보 userNo의 getter setter
+  // user정보 No의 getter setter
   public Long getUserNo() {
     return userNo;
   }
