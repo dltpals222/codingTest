@@ -1,11 +1,20 @@
 package com.test.example.repository.entity;
 
 public class UserDTO {
+  Long userNo;
   String userName;
   String userID;
-  String userNumber;
-  String userDeposit;
-  String userScore;
+  Long userNumber;
+  Long userDeposit;
+  int userScore;
+
+  // user정보 No의 getter setter
+  public Long getUserNo() {
+    return userNo;
+  }
+  public void setUserNo(Long userNo) {
+    this.userNo = userNo;
+  }
   
   // user정보 name의 getter setter
   public String getUserName() {
@@ -24,26 +33,26 @@ public class UserDTO {
   }
   
   // user정보 Number의 getter setter
-  public String getUserNumber() {
+  public Long getUserNumber() {
     return userNumber;
   }
-  public void setUserNumber(String userNumber) {
+  public void setUserNumber(Long userNumber) {
     this.userNumber = userNumber;
   }
   
   // user정보 Deposit의 getter setter
-  public String getUserDeposit() {
+  public Long getUserDeposit() {
     return userDeposit;
   }
-  public void setUserDeposit(String userDeposit) {
+  public void setUserDeposit(Long userDeposit) {
     this.userDeposit = userDeposit;
   }
   
   // user정보 Score의 getter setter
-  public String getUserScore() {
+  public int getUserScore() {
     return userScore;
   }
-  public void setUserScore(String userScore) {
+  public void setUserScore(int userScore) {
     this.userScore = userScore;
   }
 }

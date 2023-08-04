@@ -6,13 +6,13 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>정보 입력</title>
-    <link rel="stylesheet" href="userCreate.css" />
+    <link rel="stylesheet" href="CSS/userCreate.css" />
   </head>
   <body>
     <!--? Info_Create Modal -->
     <div id="Create-modal-container" class="modal">
       <div class="modal-content flex-center">
-        <form id="addInfoForm" method="POST" action="your_submit_url">
+        <form id="addInfoForm" method="POST" action="/create">
           <table class="modal-table">
             <thead>
               <tr>

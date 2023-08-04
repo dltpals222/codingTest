@@ -25,7 +25,7 @@ public class UsersTest {
               .number(123456L)
               .userId("john")
               .deposit(1000L)
-              .score(42L)
+              .score(42)
               .build();
 
       UsersScore savedUser = usersRepository.save(user);

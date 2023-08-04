@@ -6,7 +6,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>회원 정보</title>
-    <link rel="stylesheet" type="text/css" href="index.css" />
+    <link rel="stylesheet" type="text/css" href="CSS/index.css" />
   </head>
   <body>
     <div id="root" style="display: flex" class="width-height-100">
@@ -116,7 +116,7 @@
       });
 
       function loadModal() {
-        fetch("userCreate.jsp")
+        fetch("/create")
           .then(function (res) {
             if (!res.ok) {
               throw Error(res.statusText);
