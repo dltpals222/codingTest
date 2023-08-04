@@ -31,6 +31,6 @@ public class UsersScore {
   @Column(nullable = false)
   private Long deposit;
   
-  @Column(nullable = false, columnDefinition = "integer default 0")
+  @Column(nullable = false)
   private Integer score;
 }
