@@ -16,6 +16,7 @@
           <table class="modal-table">
             <thead>
               <tr>
+                <th>NO</th>
                 <th>이름</th>
                 <th>번호</th>
                 <th>아이디</th>
@@ -26,6 +27,7 @@
             <tbody>
               <% for (int i = 0; i < 10; i++) { %>
               <tr>
+                <td><input type="text" name="data[<%=i %>][id]"</td>
                 <td><input type="text" name="data[<%=i %>][name]" /></td>
                 <td><input type="text" name="data[<%=i %>][number]" /></td>
                 <td><input type="text" name="data[<%=i %>][userId]" /></td>

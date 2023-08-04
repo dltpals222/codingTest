@@ -66,12 +66,20 @@ public class ExampleController {
         List<Map<String, String>> userDataList = new ArrayList<>(userDataMap.values());
         MultipleUsersDTO multipleUsersDTO = new MultipleUsersDTO(userDataList);
     
-        for (UserDTO userDTO : multipleUsersDTO.getUsers()) {
-          if (isNotEmptyUser(userDTO)) {
-            userRepository.join(userDTO.getUserNo(), userDTO.getUserName(), userDTO.getUserID(), userDTO.getUserNumber(), userDTO.getUserDeposit(), userDTO.getUserScore());
-        }
-            // userRepository.join(userDTO.getUserNo(), userDTO.getUserName(), userDTO.getUserID(), userDTO.getUserNumber(), userDTO.getUserDeposit(), userDTO.getUserScore());
-        }
+        try {
+          for (UserDTO userDTO : multipleUsersDTO.getUsers()) {
+            if (isNotEmptyUser(userDTO)) {
+              userRepository.join(userDTO.getUserNo(),userDTO.getUserName(), userDTO.getUserID(), userDTO.getUserNumber(), userDTO.getUserDeposit(), userDTO.getUserScore());
+              }
+          }
+      } catch (Exception e) {
+          System.err.println("Error during user creation: " + e.getMessage());
+          if (e.getCause() != null) {
+              System.err.println("Cause: " + e.getCause().getMessage());
+          }
+          e.printStackTrace();
+      }
+      
     
         return "redirect:/";
     }
@@ -84,7 +92,7 @@ public class ExampleController {
       Long userDeposit = user.getUserDeposit();
       Integer userScore = user.getUserScore();
       
-      return (userNo != null) &&
+      return (userNo!= null) &&
             (userName != null && !userName.trim().isEmpty()) &&
             (userID != null && !userID.trim().isEmpty()) &&
             (userNumber != null) &&
