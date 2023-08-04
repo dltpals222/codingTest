@@ -1,20 +1,11 @@
 package com.test.example.repository.entity;
 
 public class UserDTO {
-  Long userNo;
-  String userName;
-  String userID;
-  Long userNumber;
-  Long userDeposit;
-  int userScore;
-
-  // user정보 No의 getter setter
-  public Long getUserNo() {
-    return userNo;
-  }
-  public void setUserNo(Long userNo) {
-    this.userNo = userNo;
-  }
+  private String userName;
+  private String userID;
+  private Long userNumber;
+  private Long userDeposit;
+  private Integer userScore;
   
   // user정보 name의 getter setter
   public String getUserName() {
@@ -49,10 +40,10 @@ public class UserDTO {
   }
   
   // user정보 Score의 getter setter
-  public int getUserScore() {
+  public Integer getUserScore() {
     return userScore;
   }
-  public void setUserScore(int userScore) {
+  public void setUserScore(Integer userScore) {
     this.userScore = userScore;
   }
 }

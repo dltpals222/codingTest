@@ -1,6 +1,7 @@
 package com.test.example.controller;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -10,7 +11,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.test.example.repository.UserDAORepository;
+import com.test.example.repository.entity.JdbcUserRepository;
+import com.test.example.repository.entity.MultipleUsersDTO;
 import com.test.example.repository.entity.UserDTO;
 
 import jakarta.servlet.http.HttpServletRequest;
@@ -21,9 +23,9 @@ import jakarta.servlet.http.HttpServletRequest;
 @RequestMapping(value="/")
 public class ExampleController {
 
-  private final UserDAORepository userRepository;
+  private final JdbcUserRepository userRepository;
 
-  public ExampleController(UserDAORepository userRepository) {
+  public ExampleController(JdbcUserRepository userRepository) {
     this.userRepository = userRepository;
   }
 
@@ -38,37 +40,57 @@ public class ExampleController {
         return "userCreate";
     }
 
-    @PostMapping("/create")
+    @PostMapping("/userInfo")
     public String createUsers(HttpServletRequest request) {
-        List<UserDTO> users = new ArrayList<>();
-
         Map<String, String[]> paramMap = request.getParameterMap();
-        int userCount = paramMap.size() / 6;
-
-        for (int i = 0; i < userCount; i++) {
-          Long userNo = Long.parseLong(paramMap.get("data[" + i + "][no]")[0]);
-          String userName = paramMap.get("data[" + i + "][name]")[0];
-          String userId = paramMap.get("data[" + i + "][id]")[0];
-          Long userNumber = Long.parseLong(paramMap.get("data[" + i + "][number]")[0]);
-          Long userDeposit = Long.parseLong(paramMap.get("data[" + i + "][deposit]")[0]);
-          Integer userScore = Integer.parseInt(paramMap.get("data[" + i + "][score]")[0]);
-  
-          UserDTO userDTO = new UserDTO();
-          userDTO.setUserNo(userNo);
-          userDTO.setUserName(userName);
-          userDTO.setUserID(userId);
-          userDTO.setUserNumber(userNumber);
-          userDTO.setUserDeposit(userDeposit);
-          userDTO.setUserScore(userScore);
-  
-          users.add(userDTO);
-      }
-  
-      for (UserDTO userDTO : users) {
-          userRepository.join(userDTO.getUserNo(), userDTO.getUserName(), userDTO.getUserID(), userDTO.getUserNumber(), userDTO.getUserDeposit(), userDTO.getUserScore());
-      }
+    
+        Map<Integer, Map<String, String>> userDataMap = new HashMap<>();
+        paramMap.forEach((key, value) -> {
+          if (key.startsWith("rowIndex")) { // "rowIndex"로 시작하는 키를 무시하기 위함
+              return;
+          }
+          String[] parts = key.split("\\]\\[");
+          int index = Integer.parseInt(parts[0].substring(5)); // 'data[0]' -> 0(index)
+          String field = parts[1].substring(0, parts[1].length() - 1);
+      
+          if (!userDataMap.containsKey(index)) {
+              userDataMap.put(index, new HashMap<>());
+          }
+      
+          userDataMap.get(index).put(field, value[0]);
+      });
+      
+    
 
 
-        return "redirect:/"; 
+        List<Map<String, String>> userDataList = new ArrayList<>(userDataMap.values());
+        MultipleUsersDTO multipleUsersDTO = new MultipleUsersDTO(userDataList);
+    
+        for (UserDTO userDTO : multipleUsersDTO.getUsers()) {
+          if (isNotEmptyUser(userDTO)) {
+            userRepository.join(userDTO.getUserNo(), userDTO.getUserName(), userDTO.getUserID(), userDTO.getUserNumber(), userDTO.getUserDeposit(), userDTO.getUserScore());
+        }
+            // userRepository.join(userDTO.getUserNo(), userDTO.getUserName(), userDTO.getUserID(), userDTO.getUserNumber(), userDTO.getUserDeposit(), userDTO.getUserScore());
+        }
+    
+        return "redirect:/";
     }
+    
+    private boolean isNotEmptyUser(UserDTO user) {
+      Long userNo = user.getUserNo();
+      String userName = user.getUserName();
+      String userID = user.getUserID();
+      Long userNumber = user.getUserNumber();
+      Long userDeposit = user.getUserDeposit();
+      Integer userScore = user.getUserScore();
+      
+      return (userNo != null) &&
+            (userName != null && !userName.trim().isEmpty()) &&
+            (userID != null && !userID.trim().isEmpty()) &&
+            (userNumber != null) &&
+            (userDeposit != null) &&
+            (userScore != null);
+  }
+    
+
   }

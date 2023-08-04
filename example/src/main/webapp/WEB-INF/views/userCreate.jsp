@@ -12,11 +12,10 @@
     <!--? Info_Create Modal -->
     <div id="Create-modal-container" class="modal">
       <div class="modal-content flex-center">
-        <form id="addInfoForm" method="POST" action="/create">
+        <form id="addInfoForm" method="POST" action="/userInfo">
           <table class="modal-table">
             <thead>
               <tr>
-                <th>NO</th>
                 <th>이름</th>
                 <th>번호</th>
                 <th>아이디</th>
@@ -27,12 +26,11 @@
             <tbody>
               <% for (int i = 0; i < 10; i++) { %>
               <tr>
-                <td contenteditable="true" name="NO"></td>
-                <td contenteditable="true" name="name"></td>
-                <td contenteditable="true" name="number"></td>
-                <td contenteditable="true" name="userId"></td>
-                <td contenteditable="true" name="deposit"></td>
-                <td contenteditable="true" name="score"></td>
+                <td><input type="text" name="data[<%=i %>][name]" /></td>
+                <td><input type="text" name="data[<%=i %>][number]" /></td>
+                <td><input type="text" name="data[<%=i %>][userId]" /></td>
+                <td><input type="text" name="data[<%=i %>][deposit]" /></td>
+                <td><input type="text" name="data[<%=i %>][score]" /></td>
               </tr>
               <% } %>
             </tbody>
@@ -45,28 +43,14 @@
       </div>
     </div>
     <script>
-      function saveInputFieldsData() {
-        const table = document.querySelector("table");
-        const rows = table.querySelectorAll("tbody tr");
-        const form = document.getElementById("addInfoForm");
-
-        rows.forEach(function (row, index) {
-          const cells = row.querySelectorAll("td");
-
-          cells.forEach(function (cell) {
-            const input = document.createElement("input");
-            input.type = "hidden";
-            input.name = `data[${index}][${cell.getAttribute("name")}]`;
-            input.value = cell.innerText;
-            form.appendChild(input);
-          });
-        });
-      }
-
-      document.getElementById("addInfo").addEventListener("click", function (e) {
+      document.getElementById("cancel").addEventListener("click", function (e) {
         e.preventDefault();
-        saveInputFieldsData();
-        document.getElementById("addInfoForm").submit();
+
+        // 모든 입력 필드를 선택하고 값을 비웁니다.
+        const inputs = document.querySelectorAll("#addInfoForm input[type='text']");
+        inputs.forEach((input) => {
+          input.value = "";
+        });
       });
     </script>
   </body>
